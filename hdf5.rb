@@ -15,8 +15,7 @@ class Hdf5 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  # depends_on "gcc" # for gfortran
-  depends_on "llvm"
+  depends_on "gcc" # for gfortran
   depends_on "szip"
 
   def install
