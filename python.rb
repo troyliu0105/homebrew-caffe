@@ -23,7 +23,6 @@ class Python < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "llvm"
   depends_on "gdbm"
   depends_on "openssl"
   depends_on "readline"
