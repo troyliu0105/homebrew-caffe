@@ -22,7 +22,7 @@ class Opencv < Formula
   depends_on "libtiff"
   depends_on "troyliu0105/caffe/numpy"
   depends_on "openexr"
-  depends_on "troyliu0105/caffe/python"
+  depends_on "python"
   depends_on "tbb"
 
   resource "contrib" do
