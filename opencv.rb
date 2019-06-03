@@ -13,6 +13,7 @@ class Opencv < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "llvm" => :build
   depends_on "eigen"
   depends_on "ffmpeg"
   depends_on "glog"
@@ -20,7 +21,6 @@ class Opencv < Formula
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "troyliu0105/caffe/numpy"
   depends_on "openexr"
   depends_on "python"
   depends_on "tbb"
@@ -42,6 +42,9 @@ class Opencv < Formula
 
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
+    llvm = Formula["llvm"].opt_prefix
+    ENV["CC"]="#{llvm}/bin/clang"
+    ENV["CXX"]="#{llvm}/bin/clang++"
 
     py3_config = `python3-config --configdir`.chomp
     py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp
@@ -50,7 +53,7 @@ class Opencv < Formula
     args = std_cmake_args + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DBUILD_JASPER=OFF
-      -DBUILD_JPEG=ON
+      -DBUILD_JPEG=OFF
       -DBUILD_OPENEXR=OFF
       -DBUILD_PERF_TESTS=OFF
       -DBUILD_PNG=OFF
@@ -75,6 +78,7 @@ class Opencv < Formula
       -DWITH_QT=OFF
       -DWITH_TBB=ON
       -DWITH_VTK=OFF
+      -DWITH_JPEG=ON
       -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
       -DPYTHON3_EXECUTABLE=#{which "python3"}
