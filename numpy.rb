@@ -13,12 +13,12 @@ class Numpy < Formula
   end
 
   depends_on "cython" => :build
-  depends_on "gcc" => :build # for gfortran
-  depends_on "openblas"
+  depends_on "troyliu0105/caffe/gcc" => :build # for gfortran
+  depends_on "troyliu0105/caffe/openblas"
   depends_on "troyliu0105/caffe/python"
 
   def install
-    gcc = Formula["gcc"]
+    gcc = Formula["troyliu0105/caffe/gcc"]
     ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version_suffix}"
     ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version_suffix}"
     openblas = Formula["openblas"].opt_prefix

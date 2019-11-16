@@ -7,7 +7,7 @@ class Opencv < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "gcc" => :build
+  depends_on "troyliu0105/caffe/gcc" => :build
   depends_on "eigen"
   depends_on "ffmpeg"
   depends_on "glog"
@@ -38,7 +38,7 @@ class Opencv < Formula
 
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
-    gcc = Formula["gcc"]
+    gcc = Formula["troyliu0105/caffe/gcc"]
     ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version_suffix}"
     ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version_suffix}"
 

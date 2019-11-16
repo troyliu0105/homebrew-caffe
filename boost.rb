@@ -7,10 +7,10 @@ class Boost < Formula
   head "https://github.com/boostorg/boost.git"
 
   depends_on "icu4c"
-  depends_on "gcc"
+  depends_on "troyliu0105/caffe/gcc"
 
   def install
-    gcc = Formula["gcc"]
+    gcc = Formula["troyliu0105/caffe/gcc"]
     ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version_suffix}"
     ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version_suffix}"
     # Force boost to compile with the desired compiler

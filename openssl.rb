@@ -16,11 +16,11 @@ class Openssl < Formula
     sha256 "bdbc44c56f63f27ab4dc12583b7f46a6485500f2a583dc8c9b848c4063f58927" => :sierra
   end
   
-  depends_on "gcc" => :build
+  depends_on "troyliu0105/caffe/gcc" => :build
   depends_on "makedepend" => :build
 
   def install
-    gcc = Formula["gcc"]
+    gcc = Formula["troyliu0105/caffe/gcc"]
     ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version_suffix}"
     ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version_suffix}"
     # OpenSSL will prefer the PERL environment variable if set over $PATH
