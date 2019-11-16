@@ -5,6 +5,7 @@ class BoostPython3 < Formula
   sha256 "8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648b04406"
   head "https://github.com/boostorg/boost.git"
 
+  depends_on "troyliu0105/caffe/gcc@7" => :build
   depends_on "troyliu0105/caffe/boost"
   depends_on "troyliu0105/caffe/python"
 
@@ -14,6 +15,9 @@ class BoostPython3 < Formula
   end
 
   def install
+    gcc7 = Formula["troyliu0105/caffe/gcc@7"].opt_prefix
+    ENV["CC"]="#{gcc7}/bin/gcc"
+    ENV["CXX"]="#{gcc7}/bin/g++"
     # "layout" should be synchronized with boost
     args = ["--prefix=#{prefix}",
             "--libdir=#{lib}",

@@ -8,10 +8,13 @@ class Hdf5 < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "gcc" # for gfortran
+  depends_on "troyliu0105/caffe/gcc@7" # for gfortran
   depends_on "szip"
 
   def install
+    gcc7 = Formula["troyliu0105/caffe/gcc@7"].opt_prefix
+    ENV["CC"]="#{gcc7}/bin/gcc"
+    ENV["CXX"]="#{gcc7}/bin/g++"
     inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in tools/src/misc/h5cc.in],
       "${libdir}/libhdf5.settings",
       "#{pkgshare}/libhdf5.settings"
