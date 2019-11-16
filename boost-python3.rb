@@ -5,9 +5,9 @@ class BoostPython3 < Formula
   sha256 "8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648b04406"
   head "https://github.com/boostorg/boost.git"
 
-  depends_on "troyliu0105/caffe/gcc" => :build
+  depends_on "gcc" => :build
   depends_on "troyliu0105/caffe/boost"
-  depends_on "troyliu0105/caffe/python"
+  depends_on "python"
 
   resource "numpy" do
     url "https://files.pythonhosted.org/packages/ac/36/325b27ef698684c38b1fe2e546e2e7ef9cecd7037bcdb35c87efec4356af/numpy-1.17.2.zip"

@@ -17,7 +17,7 @@ class Openssl < Formula
     sha256 "bdbc44c56f63f27ab4dc12583b7f46a6485500f2a583dc8c9b848c4063f58927" => :sierra
   end
   
-  depends_on "troyliu0105/caffe/gcc" => :build
+  depends_on "gcc" => :build
   depends_on "makedepend" => :build
 
   def install

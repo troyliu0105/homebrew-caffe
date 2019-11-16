@@ -6,8 +6,8 @@ class Boost < Formula
   revision 2
   head "https://github.com/boostorg/boost.git"
 
-  depends_on "troyliu0105/caffe/icu4c"
-  depends_on "troyliu0105/caffe/gcc"
+  depends_on "icu4c"
+  depends_on "gcc"
 
   def install
     gcc = Formula["troyliu0105/caffe/gcc"]

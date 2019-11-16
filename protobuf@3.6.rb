@@ -14,12 +14,12 @@ class ProtobufAT36 < Formula
     sha256 "7aa1810eb949a21849da05366acf57b7235565432d3259ee40a6920cfd4c7e13" => :sierra
   end
 
-  depends_on "troyliu0105/caffe/gcc" => :build
+  depends_on "gcc" => :build
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "troyliu0105/caffe/cmake" => :build
+  depends_on "cmake" => :build
   depends_on "libtool" => :build
-  depends_on "troyliu0105/caffe/python"
+  depends_on "python"
 
   resource "six" do
     url "https://files.pythonhosted.org/packages/dd/bf/4138e7bfb757de47d1f4b6994648ec67a51efe58fa907c1e11e350cddfca/six-1.12.0.tar.gz"
