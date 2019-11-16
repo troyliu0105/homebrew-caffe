@@ -64,6 +64,7 @@ class Opencv < Formula
       -DOPENCV_GENERATE_PKGCONFIG=ON
       -DWITH_1394=OFF
       -DWITH_CUDA=OFF
+      -DWITH_OPENCL=ON
       -DWITH_EIGEN=ON
       -DWITH_FFMPEG=ON
       -DWITH_GPHOTO2=OFF
@@ -72,7 +73,8 @@ class Opencv < Formula
       -DWITH_OPENEXR=ON
       -DWITH_OPENGL=OFF
       -DWITH_QT=OFF
-      -DWITH_TBB=ON
+      -DWITH_TBB=OFF
+      -DWITH_OPENMP=ON
       -DWITH_VTK=OFF
       -DWITH_JPEG=ON
       -DBUILD_opencv_python2=OFF
