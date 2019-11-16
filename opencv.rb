@@ -5,7 +5,7 @@ class Opencv < Formula
   sha256 "8f6e4ab393d81d72caae6e78bd0fd6956117ec9f006fba55fcdb88caf62989b7"
   revision 2
 
-  depends_on "cmake" => :build
+  depends_on "troyliu0105/caffe/cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "troyliu0105/caffe/gcc" => :build
   depends_on "eigen"
@@ -18,8 +18,15 @@ class Opencv < Formula
   depends_on "libtiff"
   depends_on "openexr"
   depends_on "troyliu0105/caffe/python"
-  depends_on "numpy"
-  depends_on "tbb"
+  depends_on "troyliu0105/caffe/numpy"
+
+  bottle do
+    rebuild 1
+    root_url "https://homebrew.bintray.com/bottles"
+    sha256 "5f6821416988e413bcc9bd4ef5169a66e8458c4b55495286850bea7c6b6d34ee" => :catalina
+    sha256 "a5ff3b325dda09989870c0ff910b4ca4e639962b605ee95e9d2a01627d93da07" => :mojave
+    sha256 "d028ff3f01a4548e402659bf2291030d98a8ef6ec3ad54cbf18e2b7782899dec" => :high_sierra
+  end
 
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/4.1.0.tar.gz"

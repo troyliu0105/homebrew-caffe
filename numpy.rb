@@ -5,13 +5,6 @@ class Numpy < Formula
   sha256 "73615d3edc84dd7c4aeb212fa3748fb83217e00d201875a47327f55363cef2df"
   head "https://github.com/numpy/numpy.git"
 
-  bottle do
-    cellar :any
-    sha256 "6caa30db10a0c412e80e0a1ff36aac612a63b4a5036d60e19f9a399c288dbdda" => :catalina
-    sha256 "b9d4fdb31e70e731862945bed3c41e8f3ec42284ffa0e00aa89f4d8b333f49e0" => :mojave
-    sha256 "d71dad1f252ed37d1ac763a99f6a7646297e90499259ae055192d52e687636cf" => :high_sierra
-  end
-
   depends_on "troyliu0105/caffe/cython" => :build
   depends_on "troyliu0105/caffe/gcc" => :build # for gfortran
   depends_on "troyliu0105/caffe/openblas"
