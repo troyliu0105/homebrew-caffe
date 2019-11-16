@@ -10,7 +10,7 @@ depends_on "autoconf" => :build
 depends_on "automake" => :build
 depends_on "troyliu0105/caffe/cmake" => :build
 depends_on "libtool" => :build
-depends_on "troyliu0105/caffe/gcc@9" => :build
+depends_on "gcc" => :build
 depends_on "troyliu0105/caffe/python"
 # depends_on "python@2"
 
@@ -25,9 +25,9 @@ resource "gtest" do
 end
 
 def install
-    gcc9 = Formula["troyliu0105/caffe/gcc@9"].opt_prefix
-    ENV["CC"]="#{gcc9}/bin/gcc"
-    ENV["CXX"]="#{gcc9}/bin/g++"
+    gcc = Formula["gcc"].opt_prefix
+    ENV["CC"]="#{gcc}/bin/gcc"
+    ENV["CXX"]="#{gcc}/bin/g++"
     (buildpath/"gtest").install resource "gtest"
     (buildpath/"gtest/googletest").cd do
         system "cmake", "."

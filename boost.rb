@@ -7,12 +7,12 @@ class Boost < Formula
   head "https://github.com/boostorg/boost.git"
 
   depends_on "icu4c"
-  depends_on "troyliu0105/caffe/gcc@9"
+  depends_on "gcc"
 
   def install
-    gcc9 = Formula["troyliu0105/caffe/gcc@9"].opt_prefix
-    ENV["CC"]="#{gcc9}/bin/gcc"
-    ENV["CXX"]="#{gcc9}/bin/g++"
+    gcc = Formula["gcc"].opt_prefix
+    ENV["CC"]="#{gcc}/bin/gcc"
+    ENV["CXX"]="#{gcc}/bin/g++"
     # Force boost to compile with the desired compiler
     open("user-config.jam", "a") do |file|
       file.write "using darwin : : #{ENV.cxx} ;\n"

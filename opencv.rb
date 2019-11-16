@@ -7,7 +7,7 @@ class Opencv < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "troyliu0105/caffe/gcc@9" => :build
+  depends_on "gcc" => :build
   depends_on "eigen"
   depends_on "ffmpeg"
   depends_on "glog"
@@ -38,9 +38,9 @@ class Opencv < Formula
 
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
-    gcc9 = Formula["troyliu0105/caffe/gcc@9"].opt_prefix
-    ENV["CC"]="#{gcc9}/bin/gcc"
-    ENV["CXX"]="#{gcc9}/bin/g++"
+    gcc = Formula["gcc"].opt_prefix
+    ENV["CC"]="#{gcc}/bin/gcc"
+    ENV["CXX"]="#{gcc}/bin/g++"
 
     py3_config = `python3-config --configdir`.chomp
     py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp
