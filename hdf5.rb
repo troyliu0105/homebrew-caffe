@@ -12,9 +12,9 @@ class Hdf5 < Formula
   depends_on "szip"
 
   def install
-    gcc = Formula["gcc"].opt_prefix
-    ENV["CC"]="#{gcc}/bin/gcc"
-    ENV["CXX"]="#{gcc}/bin/g++"
+    gcc = Formula["gcc"]
+    ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version.to_s()[0]}"
+    ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version.to_s()[0]}"
     inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in tools/src/misc/h5cc.in],
       "${libdir}/libhdf5.settings",
       "#{pkgshare}/libhdf5.settings"

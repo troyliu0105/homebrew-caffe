@@ -18,9 +18,9 @@ class Numpy < Formula
   depends_on "troyliu0105/caffe/python"
 
   def install
-    gcc = Formula["gcc"].opt_prefix
-    ENV["CC"]="#{gcc}/bin/gcc"
-    ENV["CXX"]="#{gcc}/bin/g++"
+    gcc = Formula["gcc"]
+    ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version.to_s()[0]}"
+    ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version.to_s()[0]}"
     openblas = Formula["openblas"].opt_prefix
     ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
     ENV["BLAS"] = ENV["LAPACK"] = "#{openblas}/lib/libopenblas.dylib"

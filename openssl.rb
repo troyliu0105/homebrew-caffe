@@ -17,11 +17,12 @@ class Openssl < Formula
   end
   
   depends_on "gcc" => :build
+  depends_on "makedepend" => :build
 
   def install
-    gcc = Formula["gcc"].opt_prefix
-    ENV["CC"]="#{gcc}/bin/gcc"
-    ENV["CXX"]="#{gcc}/bin/g++"
+    gcc = Formula["gcc"]
+    ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version.to_s()[0]}"
+    ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version.to_s()[0]}"
     # OpenSSL will prefer the PERL environment variable if set over $PATH
     # which can cause some odd edge cases & isn't intended. Unset for safety,
     # along with perl modules in PERL5LIB.

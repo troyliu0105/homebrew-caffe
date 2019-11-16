@@ -15,9 +15,9 @@ class BoostPython3 < Formula
   end
 
   def install
-    gcc = Formula["gcc"].opt_prefix
-    ENV["CC"]="#{gcc}/bin/gcc"
-    ENV["CXX"]="#{gcc}/bin/g++"
+    gcc = Formula["gcc"]
+    ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version.to_s()[0]}"
+    ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version.to_s()[0]}"
     # "layout" should be synchronized with boost
     args = ["--prefix=#{prefix}",
             "--libdir=#{lib}",

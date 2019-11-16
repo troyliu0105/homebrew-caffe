@@ -13,6 +13,7 @@ class Cmake < Formula
   end
 
   depends_on "troyliu0105/caffe/sphinx-doc" => :build
+  depends_on "gcc" => :build
 
   # The completions were removed because of problems with system bash
 
@@ -21,6 +22,9 @@ class Cmake < Formula
   # For the GUI application please instead use `brew cask install cmake`.
 
   def install
+    gcc = Formula["gcc"]
+    ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version.to_s()[0]}"
+    ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version.to_s()[0]}"
     args = %W[
       --prefix=#{prefix}
       --no-system-libs

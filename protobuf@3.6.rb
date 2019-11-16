@@ -25,9 +25,9 @@ resource "gtest" do
 end
 
 def install
-    gcc = Formula["gcc"].opt_prefix
-    ENV["CC"]="#{gcc}/bin/gcc"
-    ENV["CXX"]="#{gcc}/bin/g++"
+    gcc = Formula["gcc"]
+    ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version.to_s()[0]}"
+    ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version.to_s()[0]}"
     (buildpath/"gtest").install resource "gtest"
     (buildpath/"gtest/googletest").cd do
         system "cmake", "."
