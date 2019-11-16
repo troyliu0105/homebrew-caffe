@@ -18,11 +18,11 @@ class Python < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gdbm"
-  depends_on "openssl"
+  depends_on "troyliu0105/caffe/openssl"
   depends_on "readline"
   depends_on "sqlite"
   depends_on "xz"
-  depends_on "troyliu0105/caffe/gcc@7"
+  depends_on "troyliu0105/caffe/gcc@9"
 
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6", "bin/pip-3.7"
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6", "bin/easy_install-3.7"
@@ -43,9 +43,9 @@ class Python < Formula
   end
 
   def install
-    gcc7 = Formula["troyliu0105/caffe/gcc@7"].opt_prefix
-    ENV["CC"]="#{gcc7}/bin/gcc"
-    ENV["CXX"]="#{gcc7}/bin/g++"
+    gcc9 = Formula["troyliu0105/caffe/gcc@9"].opt_prefix
+    ENV["CC"]="#{gcc9}/bin/gcc"
+    ENV["CXX"]="#{gcc9}/bin/g++"
     # Unset these so that installing pip and setuptools puts them where we want
     # and not into some other Python the user has installed.
     ENV["PYTHONHOME"] = nil

@@ -13,14 +13,14 @@ class Numpy < Formula
   end
 
   depends_on "cython" => :build
-  depends_on "troyliu0105/caffe/gcc@7" => :build # for gfortran
+  depends_on "troyliu0105/caffe/gcc@9" => :build # for gfortran
   depends_on "openblas"
   depends_on "troyliu0105/caffe/python"
 
   def install
-    gcc7 = Formula["troyliu0105/caffe/gcc@7"].opt_prefix
-    ENV["CC"]="#{gcc7}/bin/gcc"
-    ENV["CXX"]="#{gcc7}/bin/g++"
+    gcc9 = Formula["troyliu0105/caffe/gcc@9"].opt_prefix
+    ENV["CC"]="#{gcc9}/bin/gcc"
+    ENV["CXX"]="#{gcc9}/bin/g++"
     openblas = Formula["openblas"].opt_prefix
     ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
     ENV["BLAS"] = ENV["LAPACK"] = "#{openblas}/lib/libopenblas.dylib"
