@@ -12,7 +12,7 @@ class Numpy < Formula
     sha256 "d71dad1f252ed37d1ac763a99f6a7646297e90499259ae055192d52e687636cf" => :high_sierra
   end
 
-  depends_on "cython" => :build
+  depends_on "troyliu0105/caffe/cython" => :build
   depends_on "troyliu0105/caffe/gcc" => :build # for gfortran
   depends_on "troyliu0105/caffe/openblas"
   depends_on "troyliu0105/caffe/python"
