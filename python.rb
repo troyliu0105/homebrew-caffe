@@ -44,8 +44,8 @@ class Python < Formula
 
   def install
     gcc = Formula["gcc"]
-    ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version.to_s()[0]}"
-    ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version.to_s()[0]}"
+    ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version_suffix}"
+    ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version_suffix}"
     # Unset these so that installing pip and setuptools puts them where we want
     # and not into some other Python the user has installed.
     ENV["PYTHONHOME"] = nil

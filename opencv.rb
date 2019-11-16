@@ -39,8 +39,8 @@ class Opencv < Formula
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
     gcc = Formula["gcc"]
-    ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version.to_s()[0]}"
-    ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version.to_s()[0]}"
+    ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version_suffix}"
+    ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version_suffix}"
 
     py3_config = `python3-config --configdir`.chomp
     py3_include = `python3 -c "import distutils.sysconfig as s; print(s.get_python_inc())"`.chomp

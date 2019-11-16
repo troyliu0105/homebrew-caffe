@@ -21,8 +21,8 @@ class Openssl < Formula
 
   def install
     gcc = Formula["gcc"]
-    ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version.to_s()[0]}"
-    ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version.to_s()[0]}"
+    ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version_suffix}"
+    ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version_suffix}"
     # OpenSSL will prefer the PERL environment variable if set over $PATH
     # which can cause some odd edge cases & isn't intended. Unset for safety,
     # along with perl modules in PERL5LIB.

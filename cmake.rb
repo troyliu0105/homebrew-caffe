@@ -23,8 +23,8 @@ class Cmake < Formula
 
   def install
     gcc = Formula["gcc"]
-    ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version.to_s()[0]}"
-    ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version.to_s()[0]}"
+    ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version_suffix}"
+    ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version_suffix}"
     args = %W[
       --prefix=#{prefix}
       --no-system-libs
