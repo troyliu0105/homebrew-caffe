@@ -21,7 +21,7 @@ class Openssl < Formula
   depends_on "makedepend" => :build
 
   def install
-    gcc = Formula["troyliu0105/caffe/gcc"]
+    gcc = Formula["gcc"]
     ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version_suffix}"
     ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version_suffix}"
     # OpenSSL will prefer the PERL environment variable if set over $PATH

@@ -10,7 +10,7 @@ class Boost < Formula
   depends_on "gcc"
 
   def install
-    gcc = Formula["troyliu0105/caffe/gcc"]
+    gcc = Formula["gcc"]
     ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version_suffix}"
     ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version_suffix}"
     # Force boost to compile with the desired compiler

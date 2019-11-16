@@ -45,7 +45,7 @@ class Opencv < Formula
 
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
-    gcc = Formula["troyliu0105/caffe/gcc"]
+    gcc = Formula["gcc"]
     ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version_suffix}"
     ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version_suffix}"
 
