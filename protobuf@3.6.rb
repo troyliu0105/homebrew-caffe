@@ -8,7 +8,7 @@ keg_only :versioned_formula
 
 depends_on "autoconf" => :build
 depends_on "automake" => :build
-depends_on "cmake" => :build
+depends_on "troyliu0105/caffe/cmake" => :build
 depends_on "libtool" => :build
 depends_on "troyliu0105/caffe/gcc@7" => :build
 depends_on "troyliu0105/caffe/python"
