@@ -12,8 +12,8 @@ class Cmake < Formula
     sha256 "e98220aa1eedd7e97926e160c76424cdb08ea5cfc6866ca65cd25a830605586d" => :high_sierra
   end
 
-  depends_on "troyliu0105/caffe/sphinx-doc" => :build
-  depends_on "gcc" => :build
+  # depends_on "troyliu0105/caffe/sphinx-doc" => :build
+  depends_on "troyliu0105/caffe/gcc" => :build
 
   # The completions were removed because of problems with system bash
 
@@ -22,7 +22,7 @@ class Cmake < Formula
   # For the GUI application please instead use `brew cask install cmake`.
 
   def install
-    gcc = Formula["gcc"]
+    gcc = Formula["troyliu0105/caffe/gcc"]
     ENV["CC"]="#{gcc.opt_prefix}/bin/gcc-#{gcc.version_suffix}"
     ENV["CXX"]="#{gcc.opt_prefix}/bin/g++-#{gcc.version_suffix}"
     args = %W[
@@ -32,9 +32,9 @@ class Cmake < Formula
       --datadir=/share/cmake
       --docdir=/share/doc/cmake
       --mandir=/share/man
-      --sphinx-build=#{Formula["sphinx-doc"].opt_bin}/sphinx-build
-      --sphinx-html
-      --sphinx-man
+      # --sphinx-build=#{Formula["sphinx-doc"].opt_bin}/sphinx-build
+      # --sphinx-html
+      # --sphinx-man
       --system-zlib
       --system-bzip2
       --system-curl
