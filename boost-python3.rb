@@ -31,9 +31,6 @@ class BoostPython3 < Formula
     # Boost is using "clang++ -x c" to select C compiler which breaks C++14
     # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
     args << "cxxflags=-std=c++11"
-    # if ENV.compiler == :clang
-    #   args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
-    # end
 
     # disable python detection in bootstrap.sh; it guesses the wrong include
     # directory for Python 3 headers, so we configure python manually in
