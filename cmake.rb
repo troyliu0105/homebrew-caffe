@@ -5,14 +5,6 @@ class Cmake < Formula
   sha256 "fbdd7cef15c0ced06bb13024bfda0ecc0dedbcaaaa6b8a5d368c75255243beb4"
   head "https://cmake.org/cmake.git"
 
-  bottle do
-    cellar :any_skip_relocation
-    sha256 "46b47f448f7690bbed70526a42f27bea54aa7562c9eefb86955102fc83d1366d" => :catalina
-    sha256 "ded337f539d87466a83e50c4dee5ccd47356a3a4bc066a0cadbf4c8fc52c7179" => :mojave
-    sha256 "e98220aa1eedd7e97926e160c76424cdb08ea5cfc6866ca65cd25a830605586d" => :high_sierra
-  end
-
-  # depends_on "troyliu0105/caffe/sphinx-doc" => :build
   depends_on "troyliu0105/caffe/gcc" => :build
 
   # The completions were removed because of problems with system bash
@@ -32,9 +24,6 @@ class Cmake < Formula
       --datadir=/share/cmake
       --docdir=/share/doc/cmake
       --mandir=/share/man
-      # --sphinx-build=#{Formula["sphinx-doc"].opt_bin}/sphinx-build
-      # --sphinx-html
-      # --sphinx-man
       --system-zlib
       --system-bzip2
       --system-curl
