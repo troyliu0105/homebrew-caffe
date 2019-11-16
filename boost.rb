@@ -6,13 +6,6 @@ class Boost < Formula
   revision 2
   head "https://github.com/boostorg/boost.git"
 
-  bottle do
-    cellar :any
-    sha256 "8089ad2fdc0edffcd0222043fda9a99bf82abf30f334305b9068fbef85b44893" => :mojave
-    sha256 "57b8e7c324620079499dfab19f894d7d2929d192f375ed9f09ebbff55c97f9f6" => :high_sierra
-    sha256 "98655462f9bf15f157f07fd27926d5adceb7fa3e966dd1ed5a096b68b8099474" => :sierra
-  end
-
   depends_on "icu4c"
 
   def install
@@ -55,7 +48,7 @@ class Boost < Formula
 
     # Boost is using "clang++ -x c" to select C compiler which breaks C++14
     # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
-    args << "cxxflags=-std=c++14"
+    args << "cxxflags=-std=c++11"
     if ENV.compiler == :clang
       args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
     end

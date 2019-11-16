@@ -5,12 +5,6 @@ class Python < Formula
   sha256 "da60b54064d4cfcd9c26576f6df2690e62085123826cff2e667e72a91952d318"
   head "https://github.com/python/cpython.git"
 
-  bottle do
-    sha256 "25e0099852136c4ef1efd221247d0f67aa71f7b624211b98898f8b46c612f40d" => :mojave
-    sha256 "b65fecb4bb8350359488d6ca4c0a5a343f658f424d101a45e28d5a72de7f455c" => :high_sierra
-    sha256 "b07ec3a40f58fa317e1bb937992dc0dca7d60812c60de99bde14fbadb6c27cc5" => :sierra
-  end
-
   # setuptools remembers the build flags python is built with and uses them to
   # build packages later. Xcode-only systems need different flags.
   pour_bottle? do
@@ -28,6 +22,7 @@ class Python < Formula
   depends_on "readline"
   depends_on "sqlite"
   depends_on "xz"
+  depends_on "llvm@8"
 
   skip_clean "bin/pip3", "bin/pip-3.4", "bin/pip-3.5", "bin/pip-3.6", "bin/pip-3.7"
   skip_clean "bin/easy_install3", "bin/easy_install-3.4", "bin/easy_install-3.5", "bin/easy_install-3.6", "bin/easy_install-3.7"

@@ -5,24 +5,19 @@ class Opencv < Formula
   sha256 "8f6e4ab393d81d72caae6e78bd0fd6956117ec9f006fba55fcdb88caf62989b7"
   revision 2
 
-  bottle do
-    sha256 "3be6de71c28077e5279ffb0104729b0cef1267f81908e6ea0fb404fb81d913e6" => :mojave
-    sha256 "ac383a5029e4ebec4a0695d8e27c95afc449609de3cc83840f9e11ec64f0b4d9" => :high_sierra
-    sha256 "7f134df27e2f8a0ea59273bbb2cae3ce9e6070fa02cd5e125e650a3968f5af0d" => :sierra
-  end
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "llvm" => :build
+  depends_on "llvm@8" => :build
   depends_on "eigen"
   depends_on "ffmpeg"
   depends_on "glog"
+  depends_on "gflags"
   depends_on "harfbuzz"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
   depends_on "openexr"
-  depends_on "python"
+  depends_on "troyliu0105/caffe/python"
   depends_on "numpy"
   depends_on "tbb"
 
@@ -43,7 +38,7 @@ class Opencv < Formula
 
     # Reset PYTHONPATH, workaround for https://github.com/Homebrew/homebrew-science/pull/4885
     ENV.delete("PYTHONPATH")
-    llvm = Formula["llvm"].opt_prefix
+    llvm = Formula["llvm@8"].opt_prefix
     ENV["CC"]="#{llvm}/bin/clang"
     ENV["CXX"]="#{llvm}/bin/clang++"
 

@@ -5,16 +5,8 @@ class BoostPython3 < Formula
   sha256 "8f32d4617390d1c2d16f26a27ab60d97807b35440d45891fa340fc2648b04406"
   head "https://github.com/boostorg/boost.git"
 
-  bottle do
-    cellar :any
-    rebuild 1
-    sha256 "b9e02f1dd677ceceda95c9aa3575349bd3018660d4e886be62b7ed6a5d7477b5" => :mojave
-    sha256 "791e187908f45d3a1353e9f69838c8a5d66ade9e4d410d2f6f6768d8d20d48e3" => :high_sierra
-    sha256 "ee30161bc4d164d6f92b2150a37ef1964a9c2cd24510147bcfd48103e7903887" => :sierra
-  end
-
-  depends_on "boost"
-  depends_on "python"
+  depends_on "troyliu0105/caffe/boost"
+  depends_on "troyliu0105/caffe/python"
 
   resource "numpy" do
     url "https://files.pythonhosted.org/packages/2d/80/1809de155bad674b494248bcfca0e49eb4c5d8bee58f26fe7a0dd45029e2/numpy-1.15.4.zip"
@@ -34,7 +26,7 @@ class BoostPython3 < Formula
 
     # Boost is using "clang++ -x c" to select C compiler which breaks C++14
     # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
-    args << "cxxflags=-std=c++14"
+    args << "cxxflags=-std=c++11"
     if ENV.compiler == :clang
       args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++"
     end

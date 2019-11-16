@@ -4,14 +4,7 @@ class Hdf5 < Formula
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.5/src/hdf5-1.10.5.tar.bz2"
   sha256 "68d6ea8843d2a106ec6a7828564c1689c7a85714a35d8efafa2fee20ca366f44"
   revision 1
-
-  bottle do
-    cellar :any
-    sha256 "28ee1944f9b17a50bddbfbc1730d06373efaf2f188930fa1624370bb895626df" => :mojave
-    sha256 "38fd7f6b101842d2fb103d45f3cbd927b7698795ec622495a9fc6052454eb011" => :high_sierra
-    sha256 "211b460cc14787591fdcc90c4aed3d643b5bab780269a1f2c775adf4d1ed8399" => :sierra
-  end
-
+  
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
