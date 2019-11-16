@@ -1,4 +1,4 @@
-class Gcc < Formula
+class GccAT9 < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
   url "https://ftp.gnu.org/gnu/gcc/gcc-9.2.0/gcc-9.2.0.tar.xz"
